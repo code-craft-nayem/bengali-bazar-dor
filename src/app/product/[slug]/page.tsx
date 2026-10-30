@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -197,6 +198,21 @@ function normalizeMarkets(rawMarkets?: RawMarket[]): {
   ).map((f) => `${f.market} — ${f.division}`);
 
   return { markets: ordered, missingFigmaMarkets };
+}
+
+type ProductPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: ProductPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const product = await getProduct(slug);
+
+  return {
+    title: product?.nameBn ?? "Product Details",
+  };
 }
 
 async function getProduct(idOrSlug: string): Promise<Product | null> {

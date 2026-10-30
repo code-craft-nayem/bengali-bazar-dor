@@ -2,9 +2,13 @@
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
 import { toast } from "react-toastify";
 
+
+
 const SignInPage = () => {
+
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();

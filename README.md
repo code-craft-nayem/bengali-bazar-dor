@@ -1,5 +1,3 @@
-///
-
 # Project Name: BazarDor (বাজার দর)
 
 ### Short Description:

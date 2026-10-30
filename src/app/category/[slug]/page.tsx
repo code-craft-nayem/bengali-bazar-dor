@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -94,6 +95,28 @@ function isImageUrl(value?: string): boolean {
 function isEmoji(value?: string): boolean {
   if (!value) return false;
   return !/^https?:\/\//i.test(value) && value.trim().length > 0;
+}
+
+type CategoryPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({
+  params,
+}: CategoryPageProps): Promise<Metadata> {
+  const { slug } = await params;
+
+  try {
+    const { category } = await getCategoryData(slug);
+
+    return {
+      title: category?.nameBn ?? "Category",
+    };
+  } catch {
+    return {
+      title: "Category",
+    };
+  }
 }
 
 

@@ -14,7 +14,7 @@ const notoSerifBengali = Noto_Serif_Bengali({
 });
 
 export const metadata: Metadata = {
-  title: "বাজার দর | BazarDor",
+  title: "বাজার দর",
   description: "প্রয়োজনীয় পণ্যের দাম এক নজরে।",
 };
 
