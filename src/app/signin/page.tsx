@@ -1,13 +1,14 @@
 'use client'
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
-import { redirect } from "next/navigation";
-
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 
 
 const SignInPage = () => {
+
+  const router = useRouter();
 
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
@@ -20,12 +21,15 @@ const SignInPage = () => {
 
     const { data, error } = await authClient.signIn.email({
       ...user,
-      callbackURL: "/",
+
     });
 
     if (data) {
       toast.success("সফলভাবে সাইন ইন হয়েছে");
-      redirect('/')
+
+      setTimeout(() => {
+        router.push("/");
+      }, 1500);
     }
 
     if (error) {

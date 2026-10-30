@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 type Category = {
   id: string;
@@ -50,6 +51,7 @@ export default function Header() {
       setIsSigningOut(true);
 
       await authClient.signOut();
+      toast.success("সফলভাবে সাইন আউট হয়েছে!");
       router.push("/");
       router.refresh();
     } catch (error) {
