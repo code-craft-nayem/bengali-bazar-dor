@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+export const instant = false;
 
 type ApiChange = {
   dir?: "up" | "down" | "flat" | string;
@@ -123,7 +124,7 @@ export async function generateMetadata({
 async function getCategoryData(slug: string) {
   const catRes = await fetch(
     "https://openapi.programming-hero.com/api/bazardor/categories",
-    { cache: "no-store" }
+    { next: { revalidate: 300 } }
   );
 
   const prodRes = await fetch(
