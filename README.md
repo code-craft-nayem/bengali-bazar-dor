@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+///
 
-## Getting Started
+# Project Name: BazarDor (বাজার দর)
 
-First, run the development server:
+### Short Description:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+BazarDor is a modern, responsive Bengali-language market price tracking application built with Next.js and TypeScript. It allows users to explore everyday products, browse products by category, view current prices, compare available market prices, and track daily price changes through a simple and user-friendly interface.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Used Technologies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Next.js
+2. React
+3. TypeScript
+4. Tailwind CSS
+5. DaisyUI
+6. Better Auth
+7. MongoDB
+8. REST API
+9. Git & GitHub
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Key Features:
 
-## Learn More
+**1. Product Library:**
 
-To learn more about Next.js, take a look at the following resources:
+Browse everyday products and view their names, categories, units, current prices, and available price-change information.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**2. Product Details:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+View detailed product information, including category, unit, average price, minimum and maximum prices, and market-wise prices when available through the API.
 
-## Deploy on Vercel
+**3. Category Browsing:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Explore products by category and navigate easily between different product collections.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**4. Daily Price Tracking:**
+
+Identify price increases, decreases, and unchanged prices using clear indicators and Bengali-language price information.
+
+**5. Product Sorting:**
+
+Sort products by price from low to high or high to low on category pages.
+
+**6. User Authentication:**
+
+Sign up and sign in using the application's Better Auth authentication system.
+
+**7. Profile Management:**
+
+View profile information and update supported user details through the profile section.
+
+**8. Responsive Design:**
+
+Use the application across mobile phones, tablets, and desktop devices with a responsive interface.
+
+**9. Bengali Language Support:**
+
+View localized Bengali text, product information, and Bengali numerals for a more accessible user experience.
