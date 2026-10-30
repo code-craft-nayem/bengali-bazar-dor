@@ -1,111 +1,81 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-[#F0F5F0] pb-20">
-      {/* Accessible loading announcement for screen readers */}
-      <div className="sr-only" role="status" aria-live="polite">
-        Loading market prices, please wait...
-      </div>
+    <div className="fixed inset-0 z-50 flex min-h-screen w-full flex-col items-center justify-center bg-[#f4fbf7] px-6 overflow-hidden">
 
-      <main className="mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-
-        {/* --- Hero Section Skeleton --- */}
-        <section className="relative mb-12 overflow-hidden rounded-3xl bg-white p-8 shadow-sm sm:p-12">
-          <div className="flex flex-col items-center justify-between gap-10 lg:flex-row">
-            {/* Hero Text */}
-            <div className="flex w-full max-w-xl flex-col items-center lg:items-start">
-              {/* Date pill */}
-              <Skeleton className="mb-6 h-6 w-40 rounded-full" />
-              {/* Main Title */}
-              <Skeleton className="mb-4 h-10 w-full max-w-md rounded-lg sm:h-12" />
-              {/* Subtitle */}
-              <Skeleton className="mb-8 h-5 w-full max-w-sm rounded-md" />
-              <Skeleton className="h-5 w-2/3 max-w-xs rounded-md" />
-              {/* CTA Button */}
-              <Skeleton className="mt-8 h-12 w-36 rounded-xl bg-[#008B45]/10" />
-            </div>
-
-            {/* Hero Illustration Placeholder */}
-            <div className="relative flex h-48 w-full max-w-[280px] items-center justify-center rounded-2xl bg-[#F0F5F0]/50 lg:h-64 lg:w-64">
-              <Skeleton className="h-32 w-32 rounded-full opacity-50" />
-            </div>
-          </div>
-        </section>
-
-        {/* --- Product Grid Section Skeleton --- */}
-        <section>
-          {/* Section Header */}
-          <div className="mb-6 flex items-center gap-3">
-            <Skeleton className="h-6 w-6 rounded-md bg-[#008B45]/20" />
-            <Skeleton className="h-7 w-48 rounded-md" />
-          </div>
-
-          {/* Grid Container - Matches the 3-column layout from your homepage */}
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Render 6 placeholder cards to fill the initial viewport */}
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={i}
-                className="flex flex-col rounded-2xl border border-[#e2e8e2] bg-white p-5 shadow-sm"
-              >
-                {/* Product Header (Icon + Name + Unit) */}
-                <div className="mb-4 flex items-start gap-4">
-                  {/* Product Icon/Image Placeholder */}
-                  <Skeleton className="h-12 w-12 shrink-0 rounded-full" />
-
-                  {/* Name and Unit */}
-                  <div className="flex w-full flex-col gap-2 pt-1">
-                    <Skeleton className="h-5 w-3/4 rounded-md" />
-                    <Skeleton className="h-4 w-1/2 rounded-md" />
-                  </div>
-                </div>
-
-                {/* Price Row */}
-                <div className="mt-auto flex items-end justify-between pt-4">
-                  {/* Price */}
-                  <div className="flex flex-col gap-1.5">
-                    <Skeleton className="h-3 w-16 rounded-md" />
-                    <Skeleton className="h-6 w-24 rounded-md" />
-                  </div>
-                  {/* Price Change Indicator */}
-                  <Skeleton className="h-6 w-16 rounded-md bg-[#008B45]/5" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-      </main>
-
-      {/* 
-        Custom Shimmer Animation 
-        Using Tailwind's arbitrary group classes to safely respect reduced-motion 
-      */}
       <style>{`
-        @keyframes shimmer {
-          100% {
-            transform: translateX(100%);
-          }
+        @keyframes spin-slow { 100% { transform: rotate(360deg); } }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.8; transform: scale(1); box-shadow: 0 0 30px 8px rgba(34,197,94,0.6), 0 0 60px 15px rgba(34,197,94,0.2); }
+          50% { opacity: 1; transform: scale(1.1); box-shadow: 0 0 50px 15px rgba(34,197,94,0.8), 0 0 100px 30px rgba(34,197,94,0.4); }
         }
-        @media (prefers-reduced-motion: no-preference) {
-          .animate-shimmer {
-            animation: shimmer 2s infinite linear;
-          }
+        @keyframes fade-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shimmer-text {
+          0% { background-position: -200% center; }
+          100% { background-position: 200% center; }
+        }
+        .animate-spin-slow { animation: spin-slow 3s linear infinite; }
+        .animate-spin-reverse { animation: spin-reverse 4s linear infinite; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+        .animate-fade-up { animation: fade-up 1s ease-out forwards; }
+        .animate-shimmer-text {
+          background-size: 200% auto;
+          animation: shimmer-text 3s linear infinite;
         }
       `}</style>
-    </div>
-  );
-}
 
-// --- Reusable Skeleton Component ---
-// Kept local to this file as it's specifically tuned for this loading state.
-function Skeleton({ className }: { className?: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`relative overflow-hidden rounded-md bg-[#e2e8e2] ${className}`}
-    >
-      {/* Shimmer effect overlay */}
-      <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `linear-gradient(rgba(34,197,94,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(34,197,94,0.5) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      <div className="relative z-10 flex flex-col items-center">
+
+
+        <div className="relative flex h-56 w-56 items-center justify-center">
+
+          <div className="animate-spin-slow absolute inset-0 rounded-full border-2 border-dashed border-green-500/60 shadow-[0_0_15px_rgba(34,197,94,0.4)]" />
+
+
+          <div className="animate-spin-slow absolute inset-2 rounded-full border-[3px] border-transparent border-t-green-500 border-b-green-500/40 shadow-[0_0_20px_rgba(34,197,94,0.5)]" style={{ animationDirection: 'reverse' }} />
+
+          <div className="animate-spin-reverse absolute inset-10 rounded-full border-[3px] border-transparent border-l-green-600 border-r-green-600/50" />
+
+
+          <div className="absolute inset-16 rounded-full border border-green-500/30" />
+
+
+          <div className="animate-pulse-glow relative flex h-20 w-20 items-center justify-center rounded-full bg-green-500 border-2 border-white/50">
+            <div className="absolute inset-0 rounded-full bg-white/40 blur-sm" />
+            <span className="relative z-10 text-4xl drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">🛒</span>
+          </div>
+        </div>
+
+        <div className="animate-fade-up mt-12 flex flex-col items-center text-center" style={{ animationDelay: '0.2s' }}>
+          <h1 className="animate-shimmer-text bg-gradient-to-r from-green-600 via-green-400 to-green-600 bg-clip-text text-transparent text-4xl font-extrabold tracking-[0.2em] sm:text-5xl drop-shadow-sm">
+            লোড হচ্ছে
+          </h1>
+          <p className="mt-2 text-xs tracking-[0.3em] text-green-700 uppercase font-bold">
+            বাজার দর
+          </p>
+        </div>
+
+        <div className="animate-fade-up mt-8 flex items-center gap-3 rounded-full border-2 border-green-500/40 bg-white px-6 py-3 shadow-lg shadow-green-500/20" style={{ animationDelay: '0.4s' }}>
+          <div className="relative flex h-3 w-3 items-center justify-center">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600"></span>
+          </div>
+          <span className="text-sm font-bold tracking-[0.15em] text-green-700 uppercase">
+            তথ্য লোড হচ্ছে...
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
