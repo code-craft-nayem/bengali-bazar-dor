@@ -2,17 +2,17 @@
 import Link from 'next/link';
 
 export default function NotFound() {
-  const mounted = true;
-
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#F0F5F0] px-4 py-16 sm:px-6 lg:px-8">
+    <div className="fixed inset-0 z-50 flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#F0F5F0] px-4 py-16 sm:px-6 lg:px-8">
 
+      {/* Full Screen Background Glows */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -top-40 -left-40 h-[28rem] w-[28rem] rounded-full bg-[#008B45]/10 blur-3xl animate-float-slow" />
         <div className="absolute -bottom-40 -right-40 h-[28rem] w-[28rem] rounded-full bg-[#008B45]/10 blur-3xl animate-float-slower" />
         <div className="absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/60 blur-3xl" />
       </div>
 
+      {/* Full Screen Dot Pattern */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.3]"
@@ -22,7 +22,7 @@ export default function NotFound() {
         }}
       />
 
-
+      {/* Floating Leaves */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <svg className="absolute top-16 left-[12%] h-10 w-10 text-[#008B45]/20 animate-float-leaf-1" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
@@ -35,38 +35,32 @@ export default function NotFound() {
         </svg>
       </div>
 
-      <div
-        className={`relative w-full max-w-xl transition-all duration-700 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-          }`}
-      >
+      {/* Main Card */}
+      <div className="relative w-full max-w-xl transition-all duration-700 ease-out">
 
+        {/* Glow behind card */}
         <div
           aria-hidden="true"
           className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-[#008B45]/30 via-transparent to-[#008B45]/20 blur-lg animate-glow-pulse"
         />
 
-
         <div className="relative overflow-hidden rounded-[1.75rem] border border-white bg-white/90 shadow-[0_20px_60px_-15px_rgba(38,53,43,0.25)] backdrop-blur-xl px-6 py-12 sm:px-12 sm:py-14 text-center">
 
+          {/* Top Shimmer Line */}
           <div className="absolute top-0 left-0 right-0 h-1.5 overflow-hidden">
             <div className="h-full w-full bg-gradient-to-r from-transparent via-[#008B45] to-transparent animate-shimmer" />
           </div>
 
-
+          {/* Inner background glows */}
           <div aria-hidden="true" className="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-[#008B45]/10 blur-2xl" />
           <div aria-hidden="true" className="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-[#008B45]/10 blur-2xl" />
 
-          <div
-            className={`relative mx-auto mb-8 flex items-center justify-center transition-all duration-700 delay-150 ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
-              }`}
-          >
-
+          {/* Icon */}
+          <div className="relative mx-auto mb-8 flex items-center justify-center">
             <span className="absolute h-28 w-28 rounded-full bg-[#008B45]/10 animate-ping-slow" />
             <span className="absolute h-32 w-32 rounded-full bg-[#008B45]/5 animate-ping-slower" />
 
-
             <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#008B45] to-[#00733a] shadow-lg shadow-[#008B45]/30">
-
               <span
                 aria-hidden="true"
                 className="absolute -inset-1 rounded-full bg-[conic-gradient(from_0deg,transparent_0deg,#008B45_90deg,transparent_180deg,#008B45_270deg,transparent_360deg)] opacity-40 animate-spin-slow"
@@ -90,11 +84,8 @@ export default function NotFound() {
             </div>
           </div>
 
-
-          <h1
-            className={`relative text-[6rem] sm:text-[8rem] font-black leading-none tracking-tighter transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-          >
+          {/* 404 Text */}
+          <h1 className="relative text-[6rem] sm:text-[8rem] font-black leading-none tracking-tighter">
             <span className="bg-gradient-to-b from-[#26352B] to-[#4a5c51] bg-clip-text text-transparent drop-shadow-sm">
               404
             </span>
@@ -106,10 +97,8 @@ export default function NotFound() {
             </span>
           </h1>
 
-          <div
-            className={`mt-2 inline-flex items-center gap-2 rounded-full border border-[#008B45]/20 bg-[#F0F5F0] px-4 py-1.5 transition-all duration-700 delay-[400ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
-          >
+          {/* Status Pill */}
+          <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#008B45]/20 bg-[#F0F5F0] px-4 py-1.5">
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#008B45] opacity-75 animate-ping" />
               <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#008B45]" />
@@ -119,35 +108,23 @@ export default function NotFound() {
             </span>
           </div>
 
-
-          <h2
-            className={`mt-5 text-2xl sm:text-3xl font-bold text-[#26352B] transition-all duration-700 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
-          >
+          {/* Heading & Subtitle */}
+          <h2 className="mt-5 text-2xl sm:text-3xl font-bold text-[#26352B]">
             Oops! Page Not Found
           </h2>
-
-          <p
-            className={`mx-auto mt-3 max-w-md text-base sm:text-lg leading-relaxed text-[#4a5c51] transition-all duration-700 delay-[600ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
-          >
+          <p className="mx-auto mt-3 max-w-md text-base sm:text-lg leading-relaxed text-[#4a5c51]">
             দুঃখিত! আপনি যে পৃষ্ঠাটি খুঁজছেন, সেটি পাওয়া যায়নি।
           </p>
 
-          <div
-            className={`mx-auto mt-8 mb-8 flex items-center justify-center gap-3 transition-all duration-700 delay-[700ms] ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-          >
+          {/* Divider */}
+          <div className="mx-auto mt-8 mb-8 flex items-center justify-center gap-3">
             <div className="h-px w-14 bg-gradient-to-r from-transparent to-[#008B45]/40" />
             <span className="h-2 w-2 rotate-45 bg-[#008B45]/60 animate-pulse-soft" />
             <div className="h-px w-14 bg-gradient-to-l from-transparent to-[#008B45]/40" />
           </div>
 
-
-          <div
-            className={`flex flex-col items-center justify-center gap-3 sm:flex-row transition-all duration-700 delay-[800ms] ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
-              }`}
-          >
+          {/* Button */}
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/"
               className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#008B45] px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#008B45]/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#008B45]/40 focus:outline-none focus:ring-2 focus:ring-[#008B45] focus:ring-offset-2 active:scale-[0.98]"
@@ -168,19 +145,14 @@ export default function NotFound() {
               </svg>
               Back to Home
             </Link>
-
-
           </div>
 
-          <p
-            className={`mt-10 text-xs uppercase tracking-[0.2em] text-[#8a9a8f] transition-all duration-700 delay-[900ms] ${mounted ? 'opacity-100' : 'opacity-0'
-              }`}
-          >
+          {/* Footer text */}
+          <p className="mt-10 text-xs uppercase tracking-[0.2em] text-[#8a9a8f]">
             Bengali Bazar Dor
           </p>
         </div>
       </div>
-
 
       <style jsx>{`
         @keyframes float-slow {
