@@ -38,11 +38,13 @@ BazarDor is a modern, responsive Bengali-language market price tracking applicat
 *(এখানে আপনার প্রজেক্টের স্ক্রিনশটগুলো যুক্ত করুন)*
 
 <p align="center">
-  <img src="./screenshots/home.png" alt="Home Page" width="90%" />
+<img width="1919" height="931" alt="Screenshot 2026-11-03 141907" src="https://github.com/user-attachments/assets/57d2e8ea-6333-4270-8633-5db020fdce9a" />
+
 </p>
 <p align="center">
-  <img src="./screenshots/details.png" alt="Product Details" width="90%" />
-</p>
+ <img width="1912" height="932" alt="Screenshot 2026-11-03 142018" src="https://github.com/user-attachments/assets/32b77163-ca4b-4c09-aec6-14ae6c8e59af" />
+
+
 
 ---
 
